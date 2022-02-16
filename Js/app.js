@@ -1,28 +1,64 @@
+'use strict';
+
+var emplyess = [];
+function Employee(EmployeeId,fullName,department,level,imageURL) {
+   
+    this.EmployeeId=EmployeeId;
+    this.fullName=fullName;
+    this.department=department;
+    this.level=level;
+    this.imageURL=imageURL;
+    this.salary=0;
+    emplyess.push(this);
+       
+}
 
 
-function Employee (EmployeeID,FullName,Department,Level,ImageURL,Salary){
-    this.EmployeeID= EmployeeID,
-    this.FullName = FullName,
-    this.Department = Department,
-    this.Level = Level,
-    this.ImageURL=ImageURL,
-    this.Salary=Salary
+Employee.prototype.calculateSalary = function(){
+ let max ;
+ let min; 
+ if(this.level =="Senior"){
+       min=1500;
+       max = 2000;
+ }
+ else if (this.level =="Mid-Senior"){
+    min=1000;
+    max = 1500;
+ }
+ else {
+
+    min=500;
+    max = 1000;
+ }
+
+let totalsalary = getRndInteger(min,max);
+this.salary = totalsalary - totalsalary * 0.075;
+}
+
+function getRndInteger(min,max){
+return math.floor(math.random() * ( max - min +1)) + min;
 }
 
 
 
-
+let ghazi  =new Employee("Ghazi Samer","Administration","Senior","./Photos/1.jpg");
+let lana  =new Employee("Lana Ali","Finance","Senior","./Photos/3.jpg");
+let tamara  =new Employee("Tamara Ayoub","Marketing","Senior","./Photos/5.jpg");
+let safi  =new Employee("Safi Walid","Administration","Mid-Senior","./Photos/4.jpg");
+let omar  =new Employee("Omar Zaid","Development","Senior","./Photos/6.jpg");
+let rana  =new Employee("Rana Saleh","Development","Junior","./Photos/5.jpg");
+let hadi  =new Employee("Hadi Ahmad","Finance","Mid-Senior","./Photos/6.jpg");
 
 Employee.prototype.render = function(){
-   
+    document.write(`<h3> ${this.fullName} : ${this.salary} </h3>`);
 }
 
 
+console.log(emplyess);
 
-let  Employee1 =new Employee(1000,GhaziSamer,Administration,Senior)
-let  Employee2 =new Employee(1001,LanaAli,Finance,Senior)
-let  Employee3 =new Employee(1002,TamaraAyoub,Marketing,Senior)
-let  Employee4 =new Employee(1003,SafiWalid,Administration,Mid-Senior)
-let  Employee5 =new Employee(1004,OmarZaid,Development,Senior)
-let  Employee6 =new Employee(1005,RanaSaleh,Development,Junior)
-let  Employee7 =new Employee(1006,HadiAhmad,Finance,Mid-Senior)
+for(var i=0 ; i < emplyess.length ; i++ ){
+
+emplyess[i].calculateSalary();
+emplyess[i].render();
+
+}
