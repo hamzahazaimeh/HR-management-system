@@ -19,27 +19,43 @@
 </header>
 
 <main>
-
-
-               
-
-
-
-
-
-
-
-
-
-
+        <fieldset>
+            <legend>Add Employee : </legend>
+            <form id="form">
+                <label for="name" id="nameLabel">Full Name : </label>
+                <input type="text" name="name" id="name" required>
+                <br>
+                <label for="department" id="department">Department :</label>
+                <select id="department" name="department">
+                    <option value="Administration">Administration</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Development">Development</option>
+                    <option value="Finance">Finance</option>
+                </select>
+                <br>
+                <label for="level" id="level">Level  :</label>
+                <select id="level">
+                    <option value="Junior">Junior</option>
+                    <option value="Mid-Senior">Mid-Senior</option>
+                    <option value="Senior">Senior</option>
+                </select>
+                <br>
+                <label for="image">Image URL :</label>
+                <input type="text" name="image" id="image">
+                <br>
+                <input type="submit" name="submit" id="submit" value="Add Employee">            
+            </form>
+        </fieldset>
+        <form id="showEmployee">
+        </form>
 
 </main>
 
 <footer>
-    <p> Hr Email   </p>
-    <p><a href=" hr@gmail.com "> hr@gmail.com </a></p>
+    <p> Email   </p>
+    <p><a href=" #hamza@gmail.com "> hamza@gmail.com </a></p>
     <p> Facebook </p>
-    <p><a href=" #facebook  "> CompanyFacebook </a></p>
+    <p><a href=" #facebook  "> Facebook </a></p>
 </footer>
 <script src="/Js/app.js">
 
