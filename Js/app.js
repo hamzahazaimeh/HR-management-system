@@ -1,6 +1,6 @@
 'use strict';
 
-var emplyess = [];
+let empolyess = [];
 function Employee(EmployeeId,fullName,department,level,imageURL) {
    
     this.EmployeeId=EmployeeId;
@@ -8,57 +8,50 @@ function Employee(EmployeeId,fullName,department,level,imageURL) {
     this.department=department;
     this.level=level;
     this.imageURL=imageURL;
-    this.salary=0;
-    emplyess.push(this);
+    empolyess.push(this);
        
 }
 
 
-Employee.prototype.calculateSalary = function(){
- let max ;
- let min; 
- if(this.level =="Senior"){
-       min=1500;
-       max = 2000;
- }
- else if (this.level =="Mid-Senior"){
-    min=1000;
-    max = 1500;
- }
- else {
-
-    min=500;
-    max = 1000;
- }
-
-let totalsalary = getRndInteger(min,max);
-this.salary = totalsalary - totalsalary * 0.075;
+Employee.prototype.calculateRandomSalary = function(){
+    switch (this.level) {
+        case "Junior":
+            this.salary=(Math.floor(Math.random() * 500)+500);
+            break;
+        case "Mid-Senior":
+            this.salary=(Math.floor(Math.random() * 500)+1000);
+            break;
+        case "Senior":
+            this.salary=(Math.floor(Math.random() * 500)+1500);
+            break;
+    
+        default:
+            break;
+    }
 }
 
-function getRndInteger(min,max){
-return math.floor(math.random() * ( max - min +1)) + min;
-}
+Employee.prototype.calculateNetSalary =function(){
+    this.netSalary=this.salary- (this.salary * (7.5 / 100));
+    }
 
 
-
-let ghazi  =new Employee("Ghazi Samer","Administration","Senior","./Photos/1.jpg");
-let lana  =new Employee("Lana Ali","Finance","Senior","./Photos/3.jpg");
-let tamara  =new Employee("Tamara Ayoub","Marketing","Senior","./Photos/5.jpg");
-let safi  =new Employee("Safi Walid","Administration","Mid-Senior","./Photos/4.jpg");
-let omar  =new Employee("Omar Zaid","Development","Senior","./Photos/6.jpg");
-let rana  =new Employee("Rana Saleh","Development","Junior","./Photos/5.jpg");
-let hadi  =new Employee("Hadi Ahmad","Finance","Mid-Senior","./Photos/6.jpg");
-
-Employee.prototype.render = function(){
-    document.write(`<h3> ${this.fullName} : ${this.salary} </h3>`);
-}
+    Employee.prototype.render=function () {
+        document.write(`<h1>Employee name : ${this.fullName}  || Employee salary : ${this.salary}</h1><br>`);
+    }
 
 
-console.log(emplyess);
+let ghazi  =new Employee(1000,"Ghazi Samer","Administration","Senior",1);
+let lana  =new Employee(1001,"Lana Ali","Finance","Senior",1);
+let tamara  =new Employee(1002,"Tamara Ayoub","Marketing","Senior",1);
+let safi  =new Employee(1003,"Safi Walid","Administration","Mid-Senior",1);
+let omar  =new Employee(1004,"Omar Zaid","Development","Senior",1);
+let rana  =new Employee(1005,"Rana Saleh","Development","Junior",1);
+let hadi  =new Employee(1006,"Hadi Ahmad","Finance","Mid-Senior",1);
 
-for(var i=0 ; i < emplyess.length ; i++ ){
 
-emplyess[i].calculateSalary();
-emplyess[i].render();
+for (let i = 0; i < empolyess.length; i++) {
+    empolyess[i].calculateRandomSalary();
+    empolyess[i].calculateNetSalary();
+    empolyess[i].render();
 
 }
