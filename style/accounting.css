@@ -1,9 +1,9 @@
 
 header{
-    background-color: #395B64;
+    background-color: #a1b0b3;
     font-size: xx-large;
    /*width: 50%;*/
-    line-height: 3.5;
+    line-height: 2.5;
     margin: auto;
     display: block;
     align-items: center;
@@ -18,7 +18,7 @@ header nav a {
     padding: 10px 25px;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    background-color: rgb(2, 168, 245);
+    background-color: rgb(248, 24, 24);
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-size:medium;
@@ -31,7 +31,7 @@ header nav a {
     color: white;
   }
 main{
-    margin-top: 8%;
+    margin-top: 20%;
     margin-bottom: 8%;
     text-align: center;
     display: flex;
@@ -46,7 +46,7 @@ background-color: #00bdf7;
 
 footer{
     margin-top: 8px;
-    background-color: #395B64;
+    background-color: #a1b0b3;
     text-align: center;
     font-family: 'Nunito', sans-serif;
     color: white;
