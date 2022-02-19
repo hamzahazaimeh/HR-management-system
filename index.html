@@ -5,61 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style/index.css">
 </head>
 <body>
     
 <header>
-<div class="navbar">
-       <ul class="pageLink">
-           <li> <a href="/index.html"    > Home Page </a> </li>
-           <li> <a href="/accounting.html"  >  Accounting  </a> </li>
-       </ul>
-</div>
+    <label id="Site_Name">HR Management System</label>
+    <nav>
+        <a href="accounting.html">Accounting Page</a>
+        <a href="index.html"> Home Page </a>       
+    </nav>
 
 </header>
 
 <main>
-        <fieldset>
-            <legend>Add Employee : </legend>
-            <form id="form">
-                <label for="name" id="nameLabel">Full Name : </label>
-                <input type="text" name="name" id="name" required>
-                <br>
-                <label for="department" id="department">Department :</label>
-                <select id="department" name="department">
-                    <option value="Administration">Administration</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Development">Development</option>
-                    <option value="Finance">Finance</option>
-                </select>
-                <br>
-                <label for="level" id="level">Level  :</label>
-                <select id="level">
-                    <option value="Junior">Junior</option>
-                    <option value="Mid-Senior">Mid-Senior</option>
-                    <option value="Senior">Senior</option>
-                </select>
-                <br>
-                <label for="image">Image URL :</label>
-                <input type="text" name="image" id="image">
-                <br>
-                <input type="submit" name="submit" id="submit" value="Add Employee">            
-            </form>
-        </fieldset>
-        <form id="showEmployee">
+ 
+    <fieldset>
+        <legend>Add Employee : </legend>
+        <form id="form">
+            <label for="name" id="nameLabel">Full Name : </label>
+            <input type="text" name="name" id="name" required>
+            <br>
+            <label for="department" id="department">Department :</label>
+            <select id="department" name="department">
+                <option value="Administration">Administration</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Development">Development</option>
+                <option value="Finance">Finance</option>
+            </select>
+            <br>
+            <label for="level" id="level">Level  :</label>
+            <select id="level">
+                <option value="Junior">Junior</option>
+                <option value="Mid-Senior">Mid-Senior</option>
+                <option value="Senior">Senior</option>
+            </select>
+            <br>
+            <label for="image">Image URL :</label>
+            <input type="text" name="image" id="image">
+            <br>
+            <input type="submit" name="submit" id="submit" value="Add Employee">            
         </form>
+    </fieldset>
+    <form id="showEmployee">
+    </form>
 
+
+        <script src="/Js/app.js">
+
+
+        </script>
 </main>
 
 <footer>
-    <p> Email   </p>
-    <p><a href=" #hamza@gmail.com "> hamza@gmail.com </a></p>
-    <p> Facebook </p>
-    <p><a href=" #facebook  "> Facebook </a></p>
+        <a href="https://twitter.com/HamzaHazaimeh2"> Twitter </a>
+  
+        <a href="https://www.linkedin.com/in/hamza-hazaimeh-5b0252189"> LinkedIn </a>
+     
+    <label>All rights reserved © 2022</label>
+
 </footer>
-<script src="/Js/app.js">
 
-
-</script>
 </body>
 </html>
