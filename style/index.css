@@ -1,6 +1,6 @@
 
 header{
-    background-color: #a1b0b3;
+    background-color: #4734f0;
     font-size: xx-large;
 
     line-height: 2.5;
@@ -53,7 +53,7 @@ main fieldset{
     flex-wrap: wrap;
 }
 #Show  {
-    background-color:#357C3C;
+    background-color:#f01616;
     color: black;
     align-items: center;
     text-align: center;
@@ -74,7 +74,7 @@ main fieldset{
 }
 footer{
     margin-top: 8px;
-    background-color: #a1b0b3;
+    background-color: #4734f0;
     text-align: center;
     font-family: 'Nunito', sans-serif;
     color: white;

@@ -1,18 +1,24 @@
 'use strict';
-
-let empolyess = [];
-function Employee(EmployeeId,fullName,department,level,imageURL) {
+let allEmployee=[];
+let fullNameForm;
+let departmentForm;
+let levelForm;
+let imageURLForm;
+let form = document.getElementById("form");
+let formID=document.getElementById("showEmployee");
+let btn = document.getElementById("submit");
+function Employee (fullName,department,level,imageURL) {
    
-    this.EmployeeId=EmployeeId;
+    this.generateUniqueID();
     this.fullName=fullName;
     this.department=department;
     this.level=level;
     this.imageURL=imageURL;
-    empolyess.push(this);
-       
+    allEmployee.push(this);
+    this.calculateRandomSalary();
+    this.calculateNetSalary();
+    this.showData();
 }
-
-
 Employee.prototype.calculateRandomSalary = function(){
     switch (this.level) {
         case "Junior":
@@ -29,29 +35,66 @@ Employee.prototype.calculateRandomSalary = function(){
             break;
     }
 }
-
 Employee.prototype.calculateNetSalary =function(){
-    this.netSalary=this.salary- (this.salary * (7.5 / 100));
-    }
+this.netSalary=this.salary- (this.salary * (7.5 / 100));
+}
+Employee.prototype.render=function () {
+    document.write(`<h1>Employee ID : ${this.employeeID} || Employee name : ${this.fullName}  || Employee salary : ${this.salary}</h1><br>`);
+}
+Employee.prototype.generateUniqueID=function(){
+if (Array.isArray(allEmployee) && allEmployee.length==0) {
+    this.employeeID = 1000 ;
+}
+else{
+    let indexID=allEmployee.length-1;
+    this.employeeID= (allEmployee[indexID].employeeID)+1;
+    
+}
+}
+Employee.prototype.showData=function(){
 
-
-    Employee.prototype.render=function () {
-        document.write(`<h1>Employee name : ${this.fullName}  || Employee salary : ${this.salary}</h1><br>`);
-    }
-
-
-let ghazi  =new Employee(1000,"Ghazi Samer","Administration","Senior",1);
-let lana  =new Employee(1001,"Lana Ali","Finance","Senior",1);
-let tamara  =new Employee(1002,"Tamara Ayoub","Marketing","Senior",1);
-let safi  =new Employee(1003,"Safi Walid","Administration","Mid-Senior",1);
-let omar  =new Employee(1004,"Omar Zaid","Development","Senior",1);
-let rana  =new Employee(1005,"Rana Saleh","Development","Junior",1);
-let hadi  =new Employee(1006,"Hadi Ahmad","Finance","Mid-Senior",1);
-
-
-for (let i = 0; i < empolyess.length; i++) {
-    empolyess[i].calculateRandomSalary();
-    empolyess[i].calculateNetSalary();
-    empolyess[i].render();
+let divToShow =document.createElement("div");
+divToShow.id="Show";
+let imageE=document.createElement("img");
+ imageE.setAttribute("src",this.imageURL);
+ divToShow.appendChild(imageE); 
+let title = document.createElement("h3");
+ title.textContent="Name :"+this.fullName;
+ divToShow.appendChild(title);
+ let title1=document.createElement("h3");
+ title1.textContent="ID :"+this.employeeID;
+ divToShow.appendChild(title1);
+ let title2=document.createElement("h3");
+ title2.textContent="Department :"+this.department;
+ divToShow.appendChild(title2);
+ let title3=document.createElement("h3");
+ title3.textContent="level :"+this.level;
+ divToShow.appendChild(title3);
+ 
+ 
+ formID.appendChild(divToShow);
 
 }
+form.addEventListener("submit", handelSubmit);
+function handelSubmit(event){
+   
+    event.preventDefault();
+    fullNameForm = event.target.name.value;
+    imageURLForm = event.target.image.value;
+    departmentForm=event.target.department.value;
+    levelForm=event.target.level.value;
+    imageURLForm=event.target.image.value;
+    let newEmployee=new Employee(fullNameForm,departmentForm,levelForm,imageURLForm);
+    
+    form.reset();
+}
+
+let ghazi  =new Employee("Ghazi Samer","Administration","Senior","./Photos/1.jpg");
+let lana  =new Employee("Lana Ali","Finance","Senior","./Photos/3.jpg");
+let tamara  =new Employee("Tamara Ayoub","Marketing","Senior","./Photos/5.jpg");
+let safi  =new Employee("Safi Walid","Administration","Mid-Senior","./Photos/4.jpg");
+let omar  =new Employee("Omar Zaid","Development","Senior","./Photos/6.jpg");
+let rana  =new Employee("Rana Saleh","Development","Junior","./Photos/5.jpg");
+let hadi  =new Employee("Hadi Ahmad","Finance","Mid-Senior","./Photos/6.jpg");
+
+console.log(allEmployee);

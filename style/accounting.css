@@ -1,6 +1,6 @@
 
 header{
-    background-color: #a1b0b3;
+    background-color: #4734f0;
     font-size: xx-large;
    /*width: 50%;*/
     line-height: 2.5;
@@ -46,17 +46,16 @@ background-color: #00bdf7;
 
 footer{
     margin-top: 8px;
-    background-color: #a1b0b3;
+    background-color: #4734f0;
     text-align: center;
     font-family: 'Nunito', sans-serif;
-    color: white;
+    color: rgb(250, 14, 14);
 }
 footer a{
     display: block;
     text-align: center;
     line-height: 150%;
     font-size:xx-large;
+    
   }
-  footer i{
-    color: rgb(255, 255, 255);
-  }
+  
