@@ -89,6 +89,36 @@ function handelSubmit(event){
     form.reset();
 }
 
+if (localStorage.getItem("employee")==null) {
+    let ghazi  =new Employee("Ghazi Samer","Administration","Senior","./Photos/1.jpg");
+    let lana  =new Employee("Lana Ali","Finance","Senior","./Photos/3.jpg");
+    let tamara  =new Employee("Tamara Ayoub","Marketing","Senior","./Photos/5.jpg");
+    let safi  =new Employee("Safi Walid","Administration","Mid-Senior","./Photos/4.jpg");
+    let omar  =new Employee("Omar Zaid","Development","Senior","./Photos/6.jpg");
+    let rana  =new Employee("Rana Saleh","Development","Junior","./Photos/5.jpg");
+    let hadi  =new Employee("Hadi Ahmad","Finance","Mid-Senior","./Photos/6.jpg");
+    saveEmployee();
+
+}else{
+    
+    let employee = localStorage.getItem("employee");
+    let parseEmployee = JSON.parse(employee);
+    for (let i = 0; i < parseEmployee.length; i++) {
+        let newEmployee=new Employee(parseEmployee[i].fullName,parseEmployee[i].department,parseEmployee[i].level,parseEmployee[i].imageURL);
+
+    }
+    for (let i = 0; i < allEmployee.length; i++) {
+        allEmployee[i].showData();
+          
+    }
+
+}
+
+
+
+
+
+
 let ghazi  =new Employee("Ghazi Samer","Administration","Senior","./Photos/1.jpg");
 let lana  =new Employee("Lana Ali","Finance","Senior","./Photos/3.jpg");
 let tamara  =new Employee("Tamara Ayoub","Marketing","Senior","./Photos/5.jpg");
